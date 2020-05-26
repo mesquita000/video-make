@@ -1,0 +1,313 @@
+/* reset do css */
+/* como ele é generico tem que ser no começo */
+*{
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;  
+}
+
+/* fundo da pagina */
+body {
+  background-image: url('../img/fundo.jpg');
+  background-size: auto 100vh; 
+  font-family: 'Source Code Pro', monospace;
+  height: 100vh;
+  font-size: 10px;
+}
+
+/* definindo o tamanho minimo para ser carregado de tela */
+/* breakpoint */
+@media (min-width: 400px){
+  body{
+    font-size: 14px;
+  }
+}
+
+@media (min-width: 600px){
+  body{
+    font-size: 18px;
+  }
+}
+
+@media (min-width: 800px){
+  body{
+    font-size: 22px;
+  }
+}
+
+@media (min-width: 1000px){
+  body{
+    font-size: 26px;
+  }
+}
+
+@media (min-width: 1400px){
+  body{
+    font-size: 34px;
+  }
+}
+
+@media (min-width: 1800px){
+  body{
+    font-size: 42px;
+  }
+}
+
+@media (min-width: 2200px){
+  body{
+    font-size: 50px;
+  }
+}
+
+/* modificando a tag header para poder deixar o site com uma movimentação massa */
+header{
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+/* ajeitando o menu geral */
+.menu {
+  background-color: white;
+  /* deixar o menu flutuante pela pagina */
+  position: fixed;
+  width: 100vw;
+  top: 0;
+  z-index: 1;
+}
+
+/* dentro do ul de um menu está sendo modificado */
+.menu ul {
+  display: flex;
+  justify-content: space-around;
+}
+
+/* dentro de um li de um ul de um menu esta sendo modificado */
+.menu li {
+ list-style: none; 
+}
+
+/* deixando a area de link maior */
+.menu a{
+  display: block;
+  padding: 0px 45px;
+}
+
+/* modificação dos links */
+a {
+  color: teal;
+  text-decoration: none;
+}
+a:active, 
+a:hover {
+  text-decoration: underline;
+}
+ 
+/* deixando o site para colocar o titulo dps de carregar a pagina */
+.titulo{
+  transform: scale(0.2) translateY(50vh);
+  opacity: 0;
+
+  /* colocando animação */
+  animation: linear 1s animacaoTitulo forwards;
+}
+
+@keyframes animacaoTitulo{
+  100% {
+    transform: scale(1) translateY(0);
+    opacity: 1;
+  }
+}
+
+.site-subtitle, 
+.site-title {
+  color: whitesmoke;
+  text-align: center;
+}
+
+.site-title{
+  font-size: 3em;
+  font-family: 'Open Sans Condensed', sans-serif;
+}
+  
+.site-subtitle {
+ font-style: italic;
+ font-family: 'Montserrat', sans-serif;
+}
+
+.sobre,
+.contato,
+.portfolio{
+  padding: 2em;
+  min-height: 100vh;
+}
+
+@media  (min-width: 1200px){
+  .container {
+    max-width: 1200px;
+    margin-left: auto;
+    margin-right: auto;
+  }
+}
+
+.sobre h2,
+.contato h2,
+.portfolio h2{
+  font-family: 'Montserrat', sans-serif;
+  line-height: 1.8em;
+  color: whitesmoke;
+  font-size: 2em;
+}
+
+/* deixando as imagens mais organizadas em colunas */
+.grid{
+  display: grid;
+  /* colocando espacamento entre os grids */
+  gap: 10em;
+  text-align: center;
+}
+
+@media (min-width: 560px) {
+  .grid{
+    /* colocando as colunas da tela */
+    grid-template-columns: repeat(2, 240px);
+    justify-content: center;
+    gap: 7em;
+  }
+}
+
+@media (min-width: 892px) {
+  .grid{
+    /* colocando as colunas da tela */
+    grid-template-columns: repeat(3, 240px);
+    justify-content: center;
+    height: calc(100vh - 4em - 48px - 1.8em);
+    gap: 2em;
+  }
+}
+.sobre p{
+  margin-bottom: 10px;
+  text-indent: 1em;
+  font-size: 12px ;
+}
+
+@media(min-width: 600px){
+  .sobre p{
+    margin-bottom: 15px;
+    text-indent: 1.2em;
+    font-size: 14px;
+  }
+}
+@media(min-width: 800px){
+.sobre p{
+  margin-bottom: 20px;
+  text-indent: 1.4em;
+  font-size: 18px;
+}
+}
+
+/* deixando as imagens centralizado pelo texto */
+.portfolio figure{
+  text-align: center;
+}
+
+/* modificando o tamnho de imagem */
+.foto-minha{
+  height: 90px;
+  width: 120px;
+  border-radius: 10%;  
+}
+@media(min-width: 600px){
+  .foto-minha{
+    height: 120px;
+    width: 150px;
+  }
+}
+@media(min-width: 800px){
+.foto-minha{
+  height: 180px;
+  width: 240px;
+}
+}
+
+.img-portfolio{
+  height: 90px;
+  width: 120px;
+  object-fit: cover;
+  border-radius: 10%;
+  transition: 500ms;
+}
+@media(min-width:800px){
+.img-portfolio{
+  height: 180px;
+  width: 100%;
+  object-fit: cover;
+  border-radius: 10%;
+  transition: 500ms;
+}
+}
+
+.foto-minha{
+  display: flex;
+  justify-content: right;
+}
+
+/* fazendo a imagem ter movimento
+.img-portfolio:hover{
+  transform: scale(1.2);
+}
+*/
+
+/* fazendo cards que trocam de local com o verso */
+
+.flip-card{
+    perspective: 500px;
+}
+
+.card {
+  position: relative;
+  transform-style: preserve-3d;
+  transition: transform 500ms;
+}
+
+.flip-card:hover .card{
+  transform: rotateY(180deg);
+}
+
+.card-front, 
+.card-back {
+  position: absolute;
+  top: 0;
+  left: 0;
+  backface-visibility: hidden;
+}
+
+.card-back{
+    height: 180px;
+  width: 100%;
+  transform: rotateY(180deg);
+}
+
+.contato icons{
+  text-align: center;
+}
+
+.contato a{
+  padding: 10px 0px;
+  color: whitesmoke;
+  font-size: 2.5em;
+  transition: 1s;
+}
+
+.contato a:active,
+.contato a:hover{
+  text-decoration: none;
+  text-shadow: 0px 0px 25px rgba(255, 255, 255, 0.5);
+}
+
+.foto-minha{
+  float: right;
+  border-radius: 15%;
+  margin-left: 5px;
+}
